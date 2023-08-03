@@ -6,7 +6,7 @@ with open('recipes.txt', 'rt') as file:
         ingredients = []
         for _ in range(ing_count):
             ing = file.readline()
-            ing_name, q , m = ing.strip().split(' | ')
+            ing_name, q, m = ing.strip().split(' | ')
             ingredient = {
                 'ingredient_name' : ing_name,
                 'quantity' : q,
@@ -17,10 +17,10 @@ with open('recipes.txt', 'rt') as file:
         cook_book[dish_name] = ingredients
 
 
-def get_shop_list_by_dishes(dishes, person_count):
+def ingredient_list_for_dishes(dishes, person_count):
     result = {}
     for dish in dishes:
-        if dish in dishes:
+        if dish in cook_book:
             for ing in cook_book[dish]:
                 if ing['ingredient_name'] in result:
                     result[ing['ingredient_name']]['quantity'] \
